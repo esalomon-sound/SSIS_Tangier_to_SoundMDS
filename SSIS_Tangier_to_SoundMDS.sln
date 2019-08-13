@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.757
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "SSIS_Tangier_to_SoundMDS", "SSIS_Tangier_to_SoundMDS\SSIS_Tangier_to_SoundMDS.dtproj", "{897C04F7-A2AA-461E-B069-4745D1FD863C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{897C04F7-A2AA-461E-B069-4745D1FD863C}.Development|Default.ActiveCfg = Development
+		{897C04F7-A2AA-461E-B069-4745D1FD863C}.Development|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E97B5438-53D3-4210-96FE-C8EC076CDF09}
+	EndGlobalSection
+EndGlobal
