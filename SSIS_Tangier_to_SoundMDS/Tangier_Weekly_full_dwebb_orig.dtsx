@@ -13,8 +13,8 @@
   DTS:ObjectName="Tangier_Weekly_full"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="72"
-  DTS:VersionGUID="{3D02770E-E510-4C0C-A01A-6CDB32E5653F}">
+  DTS:VersionBuild="79"
+  DTS:VersionGUID="{8E63684D-A46E-4D0C-A244-B1824F2FABD2}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables>
@@ -81,6 +81,28 @@
     DTS:LoggingMode="2" />
   <DTS:Executables>
     <DTS:Executable
+      DTS:refId="Package\Archive History"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{B4C041C6-CA62-4B2E-B974-44778BBE5429}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Archive History"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0"
+        DTS:LoggingMode="2" />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{B85512B6-482C-45B0-BE71-7A72AA1BFD9B}"
+          SQLTask:BypassPrepare="False"
+          SQLTask:SqlStatementSource="EXEC ETL.dbo.usp_archive_tangier_shifts"
+          SQLTask:ResultType="ResultSetType_Rowset" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
       DTS:refId="Package\Copy Staging to Current"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Copies current data from staging"
@@ -102,13 +124,13 @@
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
-      DTS:refId="Package\Generate Tangier API and archive history"
+      DTS:refId="Package\Generate Tangier API"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
-      DTS:DTSID="{B4C041C6-CA62-4B2E-B974-44778BBE5429}"
+      DTS:DTSID="{82f2cef4-4a94-4d92-8b7a-4e41171cd4de}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
-      DTS:ObjectName="Generate Tangier API and archive history"
+      DTS:ObjectName="Generate Tangier API"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
       DTS:ThreadHint="0">
       <DTS:Variables />
@@ -119,7 +141,7 @@
         <SQLTask:SqlTaskData
           SQLTask:Connection="{B85512B6-482C-45B0-BE71-7A72AA1BFD9B}"
           SQLTask:BypassPrepare="False"
-          SQLTask:SqlStatementSource="declare @histdate date&#xA;declare @newhist date&#xA;&#xA;select @histdate = max(prov_sched_info_date_of_shift) from [soundmds].dbo.schedulemasterhistory&#xA;select @newhist = dateadd(yy,-1,cast(current_timestamp as date))&#xA;&#xA;INSERT INTO soundmds.[dbo].[ScheduleMasterHistory]&#xA;           ([providername]&#xA;           ,[providerprimarykey]&#xA;           ,[providerid1]&#xA;           ,[providertype1]&#xA;           ,[provideridvalue1]&#xA;           ,[providerid2]&#xA;           ,[providertype2]&#xA;           ,[provideridvalue2]&#xA;           ,[providerid3]&#xA;           ,[providertype3]&#xA;           ,[provideridvalue3]&#xA;           ,[providerid4]&#xA;           ,[providertype4]&#xA;           ,[provideridvalue4]&#xA;           ,[providerid5]&#xA;           ,[providertype5]&#xA;           ,[provideridvalue5]&#xA;           ,[shift_type_char_name]&#xA;           ,[location_char_name]&#xA;           ,[EmpID]&#xA;           ,[location_char_site_id]&#xA;           ,[locationprimarykey]&#xA;           ,[locationadditionalidentifier]&#xA;           ,[prov_sched_info_date_of_shift]&#xA;           ,[shiftprimarykey]&#xA;           ,[shiftsegmentkey]&#xA;           ,[plannedstart]&#xA;           ,[plannedend]&#xA;           ,[prov_adjusted_start_time]&#xA;           ,[prov_adjusted_end_time]&#xA;           ,[prov_adjusted_start_date]&#xA;           ,[prov_adjusted_end_date]&#xA;           ,[reportedminutes]&#xA;           ,[ShiftEquivalent]&#xA;           ,[pay_shift_code_char_name_desc]&#xA;           ,[ProviderStaffTypeCode]&#xA;           ,[ShiftStaffTypeCode]&#xA;           ,[PayrollTimeCode]&#xA;           ,[ResourceType]&#xA;           ,[PractitionerTypeId]&#xA;           ,[PractitionerTypeValue]&#xA;           ,[Overtime_Eligible]&#xA;           ,[HourlyRate]&#xA;           ,[HourlyTotalAmount]&#xA;           ,[Schdeule_period_locked]&#xA;           ,[AdjustmentApproved]&#xA;           ,[AdjustmentApprovedBy]&#xA;           ,[AdjustmentApprovedDate]&#xA;           ,[OriginalStartTime]&#xA;           ,[OriginalEndTime]&#xA;           ,[PlannedTimeChange]&#xA;           ,[ActualStartTimeEnteredDate]&#xA;           ,[ActualEndTimeEnteredDate]&#xA;           ,[ActualTimeEnteredBy]&#xA;           ,[ActualTime]&#xA;           ,[ReportedDurationOverridden]&#xA;           ,[DurationHours]&#xA;           ,[DurationMinutes]&#xA;           ,[ShiftComment1]&#xA;           ,[ShiftCommentDate1]&#xA;           ,[ShiftCommentEnteredBy1]&#xA;           ,[ShiftComment2]&#xA;           ,[ShiftCommentDate2]&#xA;           ,[ShiftCommentEnteredBy2]&#xA;           ,[ShiftComment3]&#xA;           ,[ShiftCommentDate3]&#xA;           ,[ShiftCommentEnteredBy3]&#xA;           ,[ShiftComment4]&#xA;           ,[ShiftCommentDate4]&#xA;           ,[ShiftCommentEnteredBy4]&#xA;           ,[ShiftComment5]&#xA;           ,[ShiftCommentDate5]&#xA;           ,[ShiftCommentEnteredBy5]&#xA;           ,[ShiftComment6]&#xA;           ,[ShiftCommentDate6]&#xA;           ,[ShiftCommentEnteredBy6]&#xA;           ,[ShiftComment7]&#xA;           ,[ShiftCommentDate7]&#xA;           ,[ShiftCommentEnteredBy7]&#xA;           ,[ShiftComment8]&#xA;           ,[ShiftCommentDate8]&#xA;           ,[ShiftCommentEnteredBy8]&#xA;           ,[ShiftComment9]&#xA;           ,[ShiftCommentDate9]&#xA;           ,[ShiftCommentEnteredBy9]&#xA;           ,[ShiftComment10]&#xA;           ,[ShiftCommentDate10]&#xA;           ,[ShiftCommentEnteredBy10]&#xA;           ,[ArchiveDate])&#xA;SELECT [providername]&#xA;      ,[providerprimarykey]&#xA;      ,[providerid1]&#xA;      ,[providertype1]&#xA;      ,[provideridvalue1]&#xA;      ,[providerid2]&#xA;      ,[providertype2]&#xA;      ,[provideridvalue2]&#xA;      ,[providerid3]&#xA;      ,[providertype3]&#xA;      ,[provideridvalue3]&#xA;      ,[providerid4]&#xA;      ,[providertype4]&#xA;      ,[provideridvalue4]&#xA;      ,[providerid5]&#xA;      ,[providertype5]&#xA;      ,[provideridvalue5]&#xA;      ,[shift_type_char_name]&#xA;      ,[location_char_name]&#xA;      ,[EmpID]&#xA;      ,[location_char_site_id]&#xA;      ,[locationprimarykey]&#xA;      ,[locationadditionalidentifier]&#xA;      ,[prov_sched_info_date_of_shift]&#xA;      ,[shiftprimarykey]&#xA;      ,[shiftsegmentkey]&#xA;      ,[plannedstart]&#xA;      ,[plannedend]&#xA;      ,[prov_adjusted_start_time]&#xA;      ,[prov_adjusted_end_time]&#xA;      ,[prov_adjusted_start_date]&#xA;      ,[prov_adjusted_end_date]&#xA;      ,[reportedminutes]&#xA;      ,[ShiftEquivalent]&#xA;      ,[pay_shift_code_char_name_desc]&#xA;      ,[ProviderStaffTypeCode]&#xA;      ,[ShiftStaffTypeCode]&#xA;      ,[PayrollTimeCode]&#xA;      ,[ResourceType]&#xA;      ,[PractitionerTypeId]&#xA;      ,[PractitionerTypeValue]&#xA;      ,[Overtime_Eligible]&#xA;      ,[HourlyRate]&#xA;      ,[HourlyTotalAmount]&#xA;      ,[Schdeule_period_locked]&#xA;      ,[AdjustmentApproved]&#xA;      ,[AdjustmentApprovedBy]&#xA;      ,[AdjustmentApprovedDate]&#xA;      ,[OriginalStartTime]&#xA;      ,[OriginalEndTime]&#xA;      ,[PlannedTimeChange]&#xA;      ,[ActualStartTimeEnteredDate]&#xA;      ,[ActualEndTimeEnteredDate]&#xA;      ,[ActualTimeEnteredBy]&#xA;      ,[ActualTime]&#xA;      ,[ReportedDurationOverridden]&#xA;      ,[DurationHours]&#xA;      ,[DurationMinutes]&#xA;      ,[ShiftComment1]&#xA;      ,[ShiftCommentDate1]&#xA;      ,[ShiftCommentEnteredBy1]&#xA;      ,[ShiftComment2]&#xA;      ,[ShiftCommentDate2]&#xA;      ,[ShiftCommentEnteredBy2]&#xA;      ,[ShiftComment3]&#xA;      ,[ShiftCommentDate3]&#xA;      ,[ShiftCommentEnteredBy3]&#xA;      ,[ShiftComment4]&#xA;      ,[ShiftCommentDate4]&#xA;      ,[ShiftCommentEnteredBy4]&#xA;      ,[ShiftComment5]&#xA;      ,[ShiftCommentDate5]&#xA;      ,[ShiftCommentEnteredBy5]&#xA;      ,[ShiftComment6]&#xA;      ,[ShiftCommentDate6]&#xA;      ,[ShiftCommentEnteredBy6]&#xA;      ,[ShiftComment7]&#xA;      ,[ShiftCommentDate7]&#xA;      ,[ShiftCommentEnteredBy7]&#xA;      ,[ShiftComment8]&#xA;      ,[ShiftCommentDate8]&#xA;      ,[ShiftCommentEnteredBy8]&#xA;      ,[ShiftComment9]&#xA;      ,[ShiftCommentDate9]&#xA;      ,[ShiftCommentEnteredBy9]&#xA;      ,[ShiftComment10]&#xA;      ,[ShiftCommentDate10]&#xA;      ,[ShiftCommentEnteredBy10]&#xA;      ,[LoadDate]&#xA;  FROM soundmds.[dbo].[ScheduleMasterCurrent] c&#xA;  where c.[prov_sched_info_date_of_shift] &lt;= @newhist&#xA;&#xA;  delete soundmds.[dbo].[ScheduleMasterCurrent]   where [prov_sched_info_date_of_shift] &lt;= @newhist&#xA;&#xA;truncate table etl.MDS.Staging_schedulemaster&#xA;declare @rc int &#xA;&#xA;select &#xA;acctgsiteid as site_code__c,  &#xA;SiteGoLive as [go live] &#xA;,x.[histdate]&#xA;,case when SiteGoLive &gt; x.histdate then dateadd(yy,+2,sitegolive)&#xA;else  dateadd(yy,+2,x.histdate) end as [outerbound]&#xA;,case when sitegolive &gt; x.histdate then  sitegolive&#xA;&#x9;&#x9;else x.histdate &#xA;&#x9;&#x9;end as [start_date] &#xA;into #sitedata&#xA; from etl.dbo.tangier_control tc&#xA;outer apply (select max(prov_sched_info_date_of_shift) as [histdate] from [soundmds].dbo.schedulemasterhistory) x &#xA;order by Site_Code__c&#xA;&#xA;CREATE TABLE #soapdate &#xA;(&#xA;    shiftsourcesiteid varchar(10) not null,&#xA;    shiftsourcestartdate date not null,&#xA;    shiftsourcenqdate date not null,&#xA;    Quartercount int&#xA;)&#xA;&#xA;INSERT #soapdate (shiftsourcesiteid, shiftsourcestartdate,shiftsourcenqdate,Quartercount)&#xA;SELECT&#xA;    [site_code__c] as[shiftsourcesiteid], &#xA;    dateadd(dd,+1,[Start_date]) as [ShiftSourceStartDate],&#xA;    DATEADD(dd,-1,DATEADD(qq, DATEDIFF(qq, 0, dateadd(dd,+1,[Start_date])) + 1, 0)) as [quarterenddate],&#xA;    1&#xA; FROM #sitedata&#xA;&#xA;-- select * from #soapdate&#xA; set @rc = 1&#xA; while @rc &lt;&gt; 0&#xA; BEGIN&#xA;  INSERT #soapdate (shiftsourcesiteid, shiftsourcestartdate,shiftsourcenqdate,Quartercount)&#xA;   SELECT shiftsourcesiteid,DATEADD(dd,1,shiftsourcenqdate), DATEADD(dd,-1,DATEADD(qq, DATEDIFF(qq, 0,DATEADD(dd,1,shiftsourcenqdate) ) + 1, 0)),2&#xA;  FROM #soapdate so WHERE DATEADD(dd,-1,DATEADD(qq, DATEDIFF(qq, 0,DATEADD(dd,1,shiftsourcenqdate)),0))&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&lt; (select top 1 outerbound from #sitedata sd  &#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;where so.shiftsourcesiteid = sd.Site_Code__c and so.shiftsourcenqdate = (select max(sx.shiftsourcenqdate) from #soapdate sx &#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;where sx.shiftsourcesiteid = so.shiftsourcesiteid) order by so.shiftsourcenqdate )&#xA;&#x9;set @rc = @@rowcount&#xA;END&#xA;&#xA; select shiftsourcesiteid, cast(shiftsourcestartdate as varchar(50)), cast(shiftsourcenqdate as varchar(50))&#xA;&#x9;   from #soapdate&#xA;&#x9;   order by shiftsourcesiteid, cast(shiftsourcestartdate as varchar(50))&#xA;&#xA; drop table #sitedata&#xA; drop table #soapdate"
+          SQLTask:SqlStatementSource="EXEC ETL.dbo.usp_generate_tangier_api_values NULL"
           SQLTask:ResultType="ResultSetType_Rowset" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
           <SQLTask:ResultBinding
             SQLTask:ResultName="0"
@@ -151,13 +173,13 @@
         DTS:LoggingMode="2" />
       <DTS:Executables>
         <DTS:Executable
-          DTS:refId="Package\Get Tangier data\Execute Process Task"
+          DTS:refId="Package\Get Tangier data\get_schedule_v3"
           DTS:CreationName="Microsoft.ExecuteProcess"
           DTS:Description="Execute Process Task"
           DTS:DTSID="{6E72B281-D474-4CD3-A615-E1140EA3DA4F}"
           DTS:ExecutableType="Microsoft.ExecuteProcess"
           DTS:LocaleID="-1"
-          DTS:ObjectName="Execute Process Task"
+          DTS:ObjectName="get_schedule_v3"
           DTS:TaskContact="Execute Process Task;Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
           DTS:ThreadHint="0">
           <DTS:Variables />
@@ -165,15 +187,17 @@
             DTS:FilterKind="0"
             DTS:LoggingMode="1" />
           <DTS:PropertyExpression
-            DTS:Name="Arguments">@[$Project::ScriptDirectory] + "get_schedule_v3.pyw " + " " +  @[User::shiftsourcesiteid] + " " +  @[User::shiftsourcestartdate] + " " +  @[User::shiftsourcenqdate] + " "  + @[$Project::Servername]  + " "  +  @[$Project::Database]</DTS:PropertyExpression>
+            DTS:Name="Arguments">"get_schedule_v3.pyw " + " " +  @[User::shiftsourcesiteid] + " " +  @[User::shiftsourcestartdate] + " " +  @[User::shiftsourcenqdate]</DTS:PropertyExpression>
+          <DTS:PropertyExpression
+            DTS:Name="Executable">@[$Project::PythonDirectory]</DTS:PropertyExpression>
           <DTS:PropertyExpression
             DTS:Name="WorkingDirectory">@[$Project::ScriptDirectory]</DTS:PropertyExpression>
           <DTS:ObjectData>
             <ExecuteProcessData
-              Executable="pythonw.exe"
+              Executable="D:\Source\Projects\TangierToSoundMDS\venv\Scripts\pythonw.exe"
               RequireFullFileName="False"
-              Arguments="c:\Tangier\get_schedule_v3.pyw  1003.0 2019-01-01 2019-03-31 dsql08 ETL"
-              WorkingDirectory="C:\Source\Projects\TangierToSoundMDS\"
+              Arguments="get_schedule_v3.pyw  1003.0 2019-01-01 2019-03-31"
+              WorkingDirectory="D:\Source\Projects\TangierToSoundMDS\"
               FailTaskIfReturnCodeIsNotSuccessValue="False"
               TerminateAfterTimeout="False"
               WindowStyle="Hidden" />
@@ -213,15 +237,17 @@
       DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:PropertyExpression
-        DTS:Name="Arguments">@[$Project::ScriptDirectory] + "get_location.pyw " +  @[$Project::Servername] + " " +  @[$Project::Database]</DTS:PropertyExpression>
+        DTS:Name="Arguments">"get_location.py"</DTS:PropertyExpression>
+      <DTS:PropertyExpression
+        DTS:Name="Executable">@[$Project::PythonDirectory]</DTS:PropertyExpression>
       <DTS:PropertyExpression
         DTS:Name="WorkingDirectory">@[$Project::ScriptDirectory]</DTS:PropertyExpression>
       <DTS:ObjectData>
         <ExecuteProcessData
-          Executable="pythonw.exe"
+          Executable="D:\Source\Projects\TangierToSoundMDS\venv\Scripts\pythonw.exe"
           RequireFullFileName="False"
-          Arguments="c:\Tangier\get_location.pyw dsql08 ETL"
-          WorkingDirectory="C:\Source\Projects\TangierToSoundMDS\"
+          Arguments="get_location.py"
+          WorkingDirectory="D:\Source\Projects\TangierToSoundMDS\"
           WindowStyle="Hidden" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -230,11 +256,11 @@
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint]"
       DTS:CreationName=""
-      DTS:DTSID="{F1142613-3888-4DC0-9052-7DF84345C05D}"
-      DTS:From="Package\Generate Tangier API and archive history"
+      DTS:DTSID="{B1F4F064-94C1-4E25-99CB-4AA1455A5A46}"
+      DTS:From="Package\Archive History"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint"
-      DTS:To="Package\Get Tangier data" />
+      DTS:To="Package\Generate Tangier API" />
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
       DTS:CreationName=""
@@ -250,7 +276,15 @@
       DTS:From="Package\Update Tangier Control"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 2"
-      DTS:To="Package\Generate Tangier API and archive history" />
+      DTS:To="Package\Archive History" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{F98388DF-2B26-41E7-80F5-A0C14486BA63}"
+      DTS:From="Package\Generate Tangier API"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\Get Tangier data" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
@@ -263,66 +297,44 @@
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="162,42"
+          Size="196,42"
           Id="Package\Copy Staging to Current"
-          TopLeft="477.000008583069,246.658826343576" />
+          TopLeft="404.000008583069,235.658826343576" />
         <NodeLayout
-          Size="273,42"
-          Id="Package\Generate Tangier API and archive history"
-          TopLeft="164.000002792903,91.7647071693183" />
+          Size="189,42"
+          Id="Package\Archive History"
+          TopLeft="160.142860091462,70.7901962900654" />
         <NodeLayout
-          Size="179,42"
-          Id="Package\Get Tangier data\Execute Process Task"
-          TopLeft="25.9428602958212,13.694119757682" />
+          Size="158,42"
+          Id="Package\Get Tangier data\get_schedule_v3"
+          TopLeft="15.9428602958212,7.69411975768202" />
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="254,118"
-          Size="254,161"
+          PanelSize="179,65"
+          Size="189,108"
           Id="Package\Get Tangier data"
-          TopLeft="173.142860091462,188.658826051863" />
+          TopLeft="160.142860091462,198.464706294181" />
         <NodeLayout
-          Size="188,42"
+          Size="189,42"
           Id="Package\Update Tangier Control"
-          TopLeft="204.97143369013,6.95294128800758" />
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="300.371431442183,133.364707169318">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,55.294118882545"
-              Start="0,0"
-              End="0,47.794118882545">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,47.794118882545" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+          TopLeft="160.142860091462,6.95294128800758" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="427.142860091462,268.40882619772">
+          TopLeft="349.142860091462,254.561766318879">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="49.8571484916071,0"
+              EndConnector="54.8571484916071,0"
               Start="0,0"
-              End="42.3571484916071,0">
+              End="47.3571484916071,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="42.3571484916071,0" />
+                    End="47.3571484916071,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -333,18 +345,102 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 2]"
-          TopLeft="299.735718241517,48.9529412880076">
+          TopLeft="160.142860091462,27.9529412880076">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,42.8117658813107"
+              EndConnector="0,58.1705883353911"
               Start="0,0"
-              End="0,35.3117658813107">
+              End="-7.5,58.1705883353911">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,35.3117658813107" />
+                    End="-18.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-18.5,0"
+                    Point2="-22.5,0"
+                    Point3="-22.5,4" />
+                  <mssgle:LineSegment
+                    End="-22.5,54.1705883353911" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-22.5,54.1705883353911"
+                    Point2="-22.5,58.1705883353911"
+                    Point3="-18.5,58.1705883353911" />
+                  <mssgle:LineSegment
+                    End="-7.5,58.1705883353911" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="189,42"
+          Id="Package\Generate Tangier API"
+          TopLeft="160.142860091462,134.627451292123" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="160.142860091462,97.456862956732">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,52.5039216687245"
+              Start="0,0"
+              End="-7.5,52.5039216687245">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-18.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-18.5,0"
+                    Point2="-22.5,0"
+                    Point3="-22.5,4" />
+                  <mssgle:LineSegment
+                    End="-22.5,48.5039216687245" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-22.5,48.5039216687245"
+                    Point2="-22.5,52.5039216687245"
+                    Point3="-18.5,52.5039216687245" />
+                  <mssgle:LineSegment
+                    End="-7.5,52.5039216687245" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="160.142860091462,161.29411795879">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,91.1705883353912"
+              Start="0,0"
+              End="-7.5,91.1705883353912">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-18.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-18.5,0"
+                    Point2="-22.5,0"
+                    Point3="-22.5,4" />
+                  <mssgle:LineSegment
+                    End="-22.5,87.1705883353912" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-22.5,87.1705883353912"
+                    Point2="-22.5,91.1705883353912"
+                    Point3="-18.5,91.1705883353912" />
+                  <mssgle:LineSegment
+                    End="-7.5,91.1705883353912" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
