@@ -5,16 +5,16 @@
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="SND-2779"
   DTS:CreatorName="SOUND\admdwebb"
-  DTS:DTSID="{129B56AA-5270-400B-A2D9-BE622049091E}"
+  DTS:DTSID="{31F8B606-8160-4AB9-B673-89F67D0E47F2}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:ISOLevel="4096"
   DTS:LastModifiedProductVersion="14.0.0800.60"
   DTS:LocaleID="1033"
-  DTS:ObjectName="Tangier_hourly_refresh_dwebb_orig"
+  DTS:ObjectName="Tangier_Hourly_Refresh"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="74"
-  DTS:VersionGUID="{ED61E2E1-0C84-49A4-967A-C03029BA3DD6}">
+  DTS:VersionBuild="75"
+  DTS:VersionGUID="{97D5AEBB-9C21-4DCE-B2AF-DE486A7A3839}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>

@@ -5,16 +5,16 @@
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="SND-2779"
   DTS:CreatorName="SOUND\admdwebb"
-  DTS:DTSID="{148BFD7F-D40B-42B9-94F2-A7EEC2BE91BF}"
+  DTS:DTSID="{261BA9CB-50B4-4D9C-B259-71F9557D97D2}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:ISOLevel="4096"
   DTS:LastModifiedProductVersion="14.0.0800.60"
   DTS:LocaleID="1033"
-  DTS:ObjectName="Tangier_Weekly_full"
+  DTS:ObjectName="Tangier_Weekly_Full"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="79"
-  DTS:VersionGUID="{8E63684D-A46E-4D0C-A244-B1824F2FABD2}">
+  DTS:VersionBuild="80"
+  DTS:VersionGUID="{C8874101-6FEA-4745-93A0-567A8B793CFC}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables>
@@ -299,13 +299,17 @@
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
+          Size="189,42"
+          Id="Package\Archive History"
+          TopLeft="160.142860091462,70.7901962900654" />
+        <NodeLayout
           Size="196,42"
           Id="Package\Copy Staging to Current"
           TopLeft="404.000008583069,235.658826343576" />
         <NodeLayout
           Size="189,42"
-          Id="Package\Archive History"
-          TopLeft="160.142860091462,70.7901962900654" />
+          Id="Package\Generate Tangier API"
+          TopLeft="160.142860091462,134.627451292123" />
         <NodeLayout
           Size="158,42"
           Id="Package\Get Tangier data\get_schedule_v3"
@@ -313,7 +317,7 @@
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="179,65"
+          PanelSize="189,65"
           Size="189,108"
           Id="Package\Get Tangier data"
           TopLeft="160.142860091462,198.464706294181" />
@@ -321,6 +325,40 @@
           Size="189,42"
           Id="Package\Update Tangier Control"
           TopLeft="160.142860091462,6.95294128800758" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="160.142860091462,97.456862956732">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,52.5039216687245"
+              Start="0,0"
+              End="-7.5,52.5039216687245">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-18.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-18.5,0"
+                    Point2="-22.5,0"
+                    Point3="-22.5,4" />
+                  <mssgle:LineSegment
+                    End="-22.5,48.5039216687245" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-22.5,48.5039216687245"
+                    Point2="-22.5,52.5039216687245"
+                    Point3="-18.5,52.5039216687245" />
+                  <mssgle:LineSegment
+                    End="-7.5,52.5039216687245" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
           TopLeft="349.142860091462,254.561766318879">
@@ -369,44 +407,6 @@
                     Point3="-18.5,58.1705883353911" />
                   <mssgle:LineSegment
                     End="-7.5,58.1705883353911" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="189,42"
-          Id="Package\Generate Tangier API"
-          TopLeft="160.142860091462,134.627451292123" />
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="160.142860091462,97.456862956732">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,52.5039216687245"
-              Start="0,0"
-              End="-7.5,52.5039216687245">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="-18.5,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-18.5,0"
-                    Point2="-22.5,0"
-                    Point3="-22.5,4" />
-                  <mssgle:LineSegment
-                    End="-22.5,48.5039216687245" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-22.5,48.5039216687245"
-                    Point2="-22.5,52.5039216687245"
-                    Point3="-18.5,52.5039216687245" />
-                  <mssgle:LineSegment
-                    End="-7.5,52.5039216687245" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>

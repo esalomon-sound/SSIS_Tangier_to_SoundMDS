@@ -29,8 +29,8 @@
           <SSIS:Property SSIS:Name="FormatVersion">1</SSIS:Property>
         </SSIS:Properties>
         <SSIS:Packages>
-          <SSIS:Package SSIS:Name="Tangier_Weekly_full_dwebb_orig.dtsx" SSIS:EntryPoint="1" />
-          <SSIS:Package SSIS:Name="Tangier_hourly_refresh_dwebb_orig.dtsx" SSIS:EntryPoint="1" />
+          <SSIS:Package SSIS:Name="Tangier_Hourly_Refresh.dtsx" SSIS:EntryPoint="1" />
+          <SSIS:Package SSIS:Name="Tangier_Weekly_Full.dtsx" SSIS:EntryPoint="1" />
         </SSIS:Packages>
         <SSIS:ConnectionManagers>
           <SSIS:ConnectionManager SSIS:Name="dsql08.SoundMDS.conmgr" />
@@ -112,33 +112,16 @@
             </SSIS:Parameter>
           </SSIS:ProjectConnectionParameters>
           <SSIS:PackageInfo>
-            <SSIS:PackageMetaData SSIS:Name="Tangier_Weekly_full_dwebb_orig.dtsx">
+            <SSIS:PackageMetaData SSIS:Name="Tangier_Hourly_Refresh.dtsx">
               <SSIS:Properties>
-                <SSIS:Property SSIS:Name="ID">{148BFD7F-D40B-42B9-94F2-A7EEC2BE91BF}</SSIS:Property>
-                <SSIS:Property SSIS:Name="Name">Tangier_Weekly_full</SSIS:Property>
+                <SSIS:Property SSIS:Name="ID">{31F8B606-8160-4AB9-B673-89F67D0E47F2}</SSIS:Property>
+                <SSIS:Property SSIS:Name="Name">Tangier_Hourly_Refresh</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">79</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">75</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{8E63684D-A46E-4D0C-A244-B1824F2FABD2}</SSIS:Property>
-                <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
-                <SSIS:Property SSIS:Name="Description">
-                </SSIS:Property>
-                <SSIS:Property SSIS:Name="ProtectionLevel">0</SSIS:Property>
-              </SSIS:Properties>
-              <SSIS:Parameters />
-            </SSIS:PackageMetaData>
-            <SSIS:PackageMetaData SSIS:Name="Tangier_hourly_refresh_dwebb_orig.dtsx">
-              <SSIS:Properties>
-                <SSIS:Property SSIS:Name="ID">{129B56AA-5270-400B-A2D9-BE622049091E}</SSIS:Property>
-                <SSIS:Property SSIS:Name="Name">Tangier_hourly_refresh_dwebb_orig</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">74</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionComments">
-                </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{ED61E2E1-0C84-49A4-967A-C03029BA3DD6}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{97D5AEBB-9C21-4DCE-B2AF-DE486A7A3839}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
@@ -234,6 +217,23 @@
                   </SSIS:Properties>
                 </SSIS:Parameter>
               </SSIS:Parameters>
+            </SSIS:PackageMetaData>
+            <SSIS:PackageMetaData SSIS:Name="Tangier_Weekly_Full.dtsx">
+              <SSIS:Properties>
+                <SSIS:Property SSIS:Name="ID">{261BA9CB-50B4-4D9C-B259-71F9557D97D2}</SSIS:Property>
+                <SSIS:Property SSIS:Name="Name">Tangier_Weekly_Full</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">80</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionComments">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{C8874101-6FEA-4745-93A0-567A8B793CFC}</SSIS:Property>
+                <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
+                <SSIS:Property SSIS:Name="Description">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="ProtectionLevel">0</SSIS:Property>
+              </SSIS:Properties>
+              <SSIS:Parameters />
             </SSIS:PackageMetaData>
           </SSIS:PackageInfo>
         </SSIS:DeploymentInfo>
