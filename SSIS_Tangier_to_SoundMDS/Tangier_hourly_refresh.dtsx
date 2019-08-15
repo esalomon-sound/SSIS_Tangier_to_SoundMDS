@@ -1,20 +1,20 @@
-<?xml version="1.0"?>
+﻿<?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
   DTS:CreationDate="4/24/2019 12:03:09 PM"
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="SND-2779"
   DTS:CreatorName="SOUND\admdwebb"
-  DTS:DTSID="{E04E1D68-DA42-4503-9E94-D32D45527319}"
+  DTS:DTSID="{6D31B8F0-5C6C-4DC6-B825-1499DC2378F6}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:ISOLevel="4096"
   DTS:LastModifiedProductVersion="14.0.0800.60"
   DTS:LocaleID="1033"
-  DTS:ObjectName="Tangier_hourly_refresh"
+  DTS:ObjectName="Tangier_Hourly_Refresh"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="67"
-  DTS:VersionGUID="{1FEC0500-DDD1-4000-AF54-4059746A0113}">
+  DTS:VersionBuild="72"
+  DTS:VersionGUID="{AD94716C-5227-4BB4-9B72-A1361C666411}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables>
@@ -97,13 +97,11 @@
       <DTS:LoggingOptions
         DTS:FilterKind="0"
         DTS:LoggingMode="2" />
-      <DTS:PropertyExpression
-        DTS:Name="Connection">@[$Project::Servername] + "." +   @[$Project::ConnectDB]</DTS:PropertyExpression>
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{B85512B6-482C-45B0-BE71-7A72AA1BFD9B}"
           SQLTask:BypassPrepare="False"
-          SQLTask:SqlStatementSource="declare @startdate date&#xA;declare @enddate date&#xA;&#xA;set @enddate = current_timestamp&#xA;set @startdate = dateadd(wk,-9,@enddate)&#xA;set @enddate = dateadd(wk,2,@enddate)&#xA;&#xA;  delete soundmds.[dbo].[ScheduleMasterCurrent]   where [prov_sched_info_date_of_shift] &gt;= @startdate&#xA;&#x9;and [prov_sched_info_date_of_shift] &lt;= @enddate&#xA;&#xA;truncate table etl.MDS.Staging_schedulemaster&#xA;&#xA;SELECT&#xA;    cast(acctgsiteid as varchar(50)), &#xA;    cast(@startdate as varchar(50)),&#xA;    cast(@enddate as varchar(50))&#xA;  from etl.dbo.tangier_control&#xA;where acctgsiteid IS NOT NULL &#xA;and (sitegolive &lt;= @startdate)&#xA;order by AcctgSiteId"
+          SQLTask:SqlStatementSource="DECLARE @start_date date&#xA;DECLARE @end_date date&#xA;&#xA;SET @end_date = CURRENT_TIMESTAMP&#xA;SET @start_date = DATEADD(wk, -9, @end_date)  &#xA;SET @end_date = DATEADD(wk, 2, @end_date)&#xA;&#xA;select @start_date, @end_date&#xA;&#xA;&#xA;DELETE soundmds.[dbo].[ScheduleMasterCurrent]&#xA;WHERE   &#xA;    [prov_sched_info_date_of_shift] BETWEEN @start_date AND @end_date&#xA;&#xA;&#xA;--TRUNCATE TABLE etl.MDS.Staging_schedulemaster  --EES 8/13/2019 Commented&#xA;&#xA;SELECT&#xA;    shift_source_site_id = CAST(AcctgSiteId AS varchar(50)), &#xA;    [start_date] = CAST(@start_date AS varchar(50)),&#xA;    end_date = CAST(@end_date AS varchar(50))&#xA;FROM&#xA;    ETL.dbo.Tangier_Control&#xA;WHERE&#xA;    AcctgSiteId IS NOT NULL &#xA;    AND (SiteGoLive &lt;= @start_date)&#xA;ORDER BY&#xA;    shift_source_site_id&#xA;&#xA;&#xA;&#xA;"
           SQLTask:ResultType="ResultSetType_Rowset" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
           <SQLTask:ResultBinding
             SQLTask:ResultName="0"
@@ -135,13 +133,13 @@
         DTS:LoggingMode="2" />
       <DTS:Executables>
         <DTS:Executable
-          DTS:refId="Package\Get Tangier data\Execute Process Task"
+          DTS:refId="Package\Get Tangier data\get_schedule_v3"
           DTS:CreationName="Microsoft.ExecuteProcess"
-          DTS:Description="Execute Process Task"
+          DTS:Description="Run Python script get_schedule_v3.pyw"
           DTS:DTSID="{B0C8B45F-ED51-4070-AAA2-A0AD041BC71A}"
           DTS:ExecutableType="Microsoft.ExecuteProcess"
           DTS:LocaleID="-1"
-          DTS:ObjectName="Execute Process Task"
+          DTS:ObjectName="get_schedule_v3"
           DTS:TaskContact="Execute Process Task;Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
           DTS:ThreadHint="0">
           <DTS:Variables />
@@ -230,7 +228,7 @@
 <!--If you manually edit this section and make a mistake, you can delete it. -->
 <!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
 <Objects
-  Version="8">
+  Version="sql12">
   <!--Each node below will contain properties that do not affect runtime behavior.-->
   <Package
     design-time-name="Package">
@@ -243,33 +241,33 @@
           TopLeft="199.428571827558,29.1294120049394" />
         <NodeLayout
           Size="179,42"
-          Id="Package\Get Tangier data\Execute Process Task"
-          TopLeft="35.9428610451368,25.9176491866062" />
+          Id="Package\Get Tangier data\get_schedule_v3"
+          TopLeft="25.9428610451368,23.9176491866062" />
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="254,123"
-          Size="254,166"
+          PanelSize="228,121"
+          Size="228,164"
           Id="Package\Get Tangier data"
-          TopLeft="159.428574143624,136.423531325053" />
+          TopLeft="162.428574143624,104.423531325053" />
         <NodeLayout
           Size="204,42"
           Id="Package\Refresh Staging to Current"
-          TopLeft="181.000008583069,329.658826343576" />
+          TopLeft="176.000008583069,292.658826343576" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="283.428572985591,71.1294120049394">
+          TopLeft="278.428572985591,71.1294120049394">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,65.2941193201136"
+              EndConnector="0,33.2941193201136"
               Start="0,0"
-              End="0,57.7941193201136">
+              End="0,25.7941193201136">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,57.7941193201136" />
+                    End="0,25.7941193201136" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -280,18 +278,18 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="284.714291363347,302.423531325053">
+          TopLeft="277.214291363346,268.423531325053">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,27.2352950185231"
+              EndConnector="0,24.235295018523"
               Start="0,0"
-              End="0,19.7352950185231">
+              End="0,16.735295018523">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,19.7352950185231" />
+                    End="0,16.735295018523" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
