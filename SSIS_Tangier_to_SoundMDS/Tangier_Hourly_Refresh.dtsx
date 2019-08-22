@@ -5,7 +5,7 @@
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="SND-2779"
   DTS:CreatorName="SOUND\admdwebb"
-  DTS:DTSID="{31F8B606-8160-4AB9-B673-89F67D0E47F2}"
+  DTS:DTSID="{D83675D3-3FEC-43B4-A850-2F63F3CC0D01}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:ISOLevel="4096"
   DTS:LastModifiedProductVersion="14.0.0800.60"
@@ -13,37 +13,25 @@
   DTS:ObjectName="Tangier_Hourly_Refresh"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="75"
-  DTS:VersionGUID="{97D5AEBB-9C21-4DCE-B2AF-DE486A7A3839}">
+  DTS:VersionBuild="79"
+  DTS:VersionGUID="{F1DAE76A-25DC-4129-A96E-505CC80E7E52}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
-  <DTS:ConnectionManagers>
-    <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[dsql08.ETL]"
-      DTS:CreationName="OLEDB"
-      DTS:DTSID="{5134D5FF-33F1-43B0-A516-2AFD8450CDEF}"
-      DTS:ObjectName="dsql08.ETL">
-      <DTS:ObjectData>
-        <DTS:ConnectionManager
-          DTS:ConnectionString="Data Source=DSQL08;Initial Catalog=ETL;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
-      </DTS:ObjectData>
-    </DTS:ConnectionManager>
-  </DTS:ConnectionManagers>
   <DTS:Variables>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{0765BD24-823F-4B96-85FC-BFF5891004DB}"
+      DTS:DTSID="{608788FC-3F7E-4949-93D4-342D48D66C11}"
       DTS:EvaluateAsExpression="True"
       DTS:Expression="@[$Project::ScriptDirectory] +  &quot;get_schedule_v3.pyw &quot; + &quot; &quot; +  @[User::shiftsourcesiteid] + &quot; &quot; +  @[User::shiftsourcestartdate] + &quot; &quot; +  @[User::shiftsourcenqdate] + &quot; &quot;  + @[$Project::Servername]  + &quot; &quot;  +  @[$Project::Database]"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="cmdarg">
       <DTS:VariableValue
-        DTS:DataType="8">C:\Source\Projects\TangierToSoundMDS\get_schedule_v3.pyw     dsql08 ETL</DTS:VariableValue>
+        DTS:DataType="8">c:\Tangier\get_schedule_v3.pyw     dsql08 ETL</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{DC7A2921-9B46-42A1-86F6-ACB3CA2DB14F}"
+      DTS:DTSID="{863807AE-FF16-46C5-BAE5-D6A086D43946}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="Commandset">
@@ -61,34 +49,31 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{FCEFAD43-52E4-45D1-B4C1-A9FEA815F353}"
+      DTS:DTSID="{442F54FC-1C2E-460E-A7FE-E24CF31C2C68}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="shiftsourcenqdate">
       <DTS:VariableValue
-        DTS:DataType="8"
-        xml:space="preserve"></DTS:VariableValue>
+        DTS:DataType="8">2019-03-31</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{D860E00D-2EC5-4A18-BF90-D04F6656D762}"
+      DTS:DTSID="{05C8326D-3483-4591-99BA-1517ECD35F2E}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="shiftsourcesiteid"
       DTS:RaiseChangedEvent="True">
       <DTS:VariableValue
-        DTS:DataType="8"
-        xml:space="preserve"></DTS:VariableValue>
+        DTS:DataType="8">2001.0</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{2EB5D580-0A20-4687-82E9-47BC0FD10FF7}"
+      DTS:DTSID="{F22CAF69-7A93-4308-9846-138D44B5FB76}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="shiftsourcestartdate">
       <DTS:VariableValue
-        DTS:DataType="8"
-        xml:space="preserve"></DTS:VariableValue>
+        DTS:DataType="8">2019-03-1</DTS:VariableValue>
     </DTS:Variable>
   </DTS:Variables>
   <DTS:LoggingOptions
@@ -99,7 +84,7 @@
       DTS:refId="Package\Execute SQL Task"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
-      DTS:DTSID="{5FC81635-8F7F-4E4B-A583-C2A08FF930F4}"
+      DTS:DTSID="{2F827E06-8A21-43DF-8901-921330CAB082}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="Execute SQL Task"
@@ -109,13 +94,11 @@
       <DTS:LoggingOptions
         DTS:FilterKind="0"
         DTS:LoggingMode="2" />
-      <DTS:PropertyExpression
-        DTS:Name="Connection">@[$Project::Servername] + "." +   @[$Project::ConnectDB]</DTS:PropertyExpression>
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{5134D5FF-33F1-43B0-A516-2AFD8450CDEF}"
+          SQLTask:Connection="{B85512B6-482C-45B0-BE71-7A72AA1BFD9B}"
           SQLTask:BypassPrepare="False"
-          SQLTask:SqlStatementSource="DECLARE @start_date date&#xA;DECLARE @end_date date&#xA;&#xA;SET @end_date = CURRENT_TIMESTAMP&#xA;SET @start_date = DATEADD(wk, -9, @end_date)  &#xA;SET @end_date = DATEADD(wk, 2, @end_date)&#xA;&#xA;--select @start_date, @end_date&#xA;&#xA;&#xA;DELETE soundmds.[dbo].[ScheduleMasterCurrent]&#xA;WHERE   &#xA;    [prov_sched_info_date_of_shift] BETWEEN @start_date AND @end_date&#xA;&#xA;&#xA;TRUNCATE TABLE etl.MDS.Staging_schedulemaster&#xA;&#xA;SELECT&#xA;    shift_source_site_id = CAST(AcctgSiteId AS varchar(50)), &#xA;    [start_date] = CAST(@start_date AS varchar(50)),&#xA;    end_date = CAST(@end_date AS varchar(50))&#xA;FROM&#xA;    ETL.dbo.Tangier_Control&#xA;WHERE&#xA;    AcctgSiteId IS NOT NULL &#xA;    AND (SiteGoLive &lt;= @start_date)&#xA;ORDER BY&#xA;    shift_source_site_id"
+          SQLTask:SqlStatementSource="DECLARE @start_date date&#xA;DECLARE @end_date date&#xA;&#xA;SET @end_date = CURRENT_TIMESTAMP&#xA;SET @start_date = DATEADD(wk, -9, @end_date)  &#xA;SET @end_date = DATEADD(wk, 2, @end_date)&#xA;&#xA;--select @start_date, @end_date&#xA;&#xA;&#xA;DELETE soundmds.[dbo].[ScheduleMasterCurrent]&#xA;WHERE   &#xA;    [prov_sched_info_date_of_shift] BETWEEN @start_date AND @end_date&#xA;&#xA;&#xA;--TRUNCATE TABLE etl.MDS.Staging_schedulemaster&#xA;TRUNCATE TABLE ETL.staging.TangierAPI_Import&#xA;&#xA;&#xA;SELECT&#xA;    shift_source_site_id = CAST(AcctgSiteId AS varchar(50)), &#xA;    [start_date] = CAST(@start_date AS varchar(50)),&#xA;    end_date = CAST(@end_date AS varchar(50))&#xA;FROM&#xA;    ETL.dbo.Tangier_Control&#xA;WHERE&#xA;    AcctgSiteId IS NOT NULL &#xA;    AND (SiteGoLive &lt;= @start_date)&#xA;ORDER BY&#xA;    shift_source_site_id"
           SQLTask:ResultType="ResultSetType_Rowset" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
           <SQLTask:ResultBinding
             SQLTask:ResultName="0"
@@ -127,14 +110,14 @@
       DTS:refId="Package\Get Tangier data"
       DTS:CreationName="STOCK:FOREACHLOOP"
       DTS:Description="Use Python to get Tangier data"
-      DTS:DTSID="{C9D59A88-3D25-41CF-9240-DEE1B62B53D2}"
+      DTS:DTSID="{0AF9038F-35B7-4AD3-AB0F-ACDBD927481A}"
       DTS:ExecutableType="STOCK:FOREACHLOOP"
       DTS:LocaleID="-1"
       DTS:ObjectName="Get Tangier data">
       <DTS:ForEachEnumerator
         DTS:CreationName="Microsoft.ForEachADOEnumerator"
-        DTS:DTSID="{6DA2292D-0DBE-4840-9A0F-3CD28D79C8DB}"
-        DTS:ObjectName="{6DA2292D-0DBE-4840-9A0F-3CD28D79C8DB}">
+        DTS:DTSID="{378AC60C-600E-4C7F-AD73-A33434B0C75C}"
+        DTS:ObjectName="{378AC60C-600E-4C7F-AD73-A33434B0C75C}">
         <DTS:ObjectData>
           <FEEADO
             EnumType="EnumerateRowsInFirstTable"
@@ -150,7 +133,7 @@
           DTS:refId="Package\Get Tangier data\Execute Process Task"
           DTS:CreationName="Microsoft.ExecuteProcess"
           DTS:Description="Execute Process Task"
-          DTS:DTSID="{EC84DCC4-E9E4-439D-BBE6-6EE50F5634B2}"
+          DTS:DTSID="{1080A4AB-6416-412E-9FB7-0454B27263BD}"
           DTS:ExecutableType="Microsoft.ExecuteProcess"
           DTS:LocaleID="-1"
           DTS:ObjectName="Execute Process Task"
@@ -161,18 +144,17 @@
             DTS:FilterKind="0"
             DTS:LoggingMode="1" />
           <DTS:PropertyExpression
-            DTS:Name="Arguments">"get_schedule_v3.pyw " + " " +  @[User::shiftsourcesiteid] + " " +  @[User::shiftsourcestartdate] + " " +  @[User::shiftsourcenqdate]</DTS:PropertyExpression>
+            DTS:Name="Arguments">"get_schedule.py" + " " +  @[User::shiftsourcesiteid] + " " +  @[User::shiftsourcestartdate] + " " +  @[User::shiftsourcenqdate]</DTS:PropertyExpression>
           <DTS:PropertyExpression
             DTS:Name="Executable">@[$Project::PythonDirectory]</DTS:PropertyExpression>
           <DTS:PropertyExpression
             DTS:Name="WorkingDirectory">@[$Project::ScriptDirectory]</DTS:PropertyExpression>
           <DTS:ObjectData>
             <ExecuteProcessData
-              Executable="D:\Source\Projects\TangierToSoundMDS\venv\Scripts\pythonw.exe"
+              Executable="C:\Source\Projects\TangierToSoundMDS\venv\Scripts\pythonw.exe"
               RequireFullFileName="False"
-              Arguments="get_schedule_v3.pyw    "
-              WorkingDirectory="D:\Source\Projects\TangierToSoundMDS\"
-              FailTaskIfReturnCodeIsNotSuccessValue="False"
+              Arguments="get_schedule.py 2001.0 2019-03-1 2019-03-31"
+              WorkingDirectory="C:\Source\Projects\TangierToSoundMDS"
               TerminateAfterTimeout="False"
               WindowStyle="Hidden" />
           </DTS:ObjectData>
@@ -181,20 +163,20 @@
       <DTS:ForEachVariableMappings>
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{162CAD6D-3447-49F9-9AA3-0558C469A139}"
-          DTS:ObjectName="{162CAD6D-3447-49F9-9AA3-0558C469A139}"
+          DTS:DTSID="{2D5634D9-91B4-45C6-9A92-8BDFE8F04EA9}"
+          DTS:ObjectName="{2D5634D9-91B4-45C6-9A92-8BDFE8F04EA9}"
           DTS:ValueIndex="0"
           DTS:VariableName="User::shiftsourcesiteid" />
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{45107EFF-B734-4E91-B3BE-771FEE8C8F2F}"
-          DTS:ObjectName="{45107EFF-B734-4E91-B3BE-771FEE8C8F2F}"
+          DTS:DTSID="{AAD891C9-11ED-49DB-9BCE-EA6630CE43AB}"
+          DTS:ObjectName="{AAD891C9-11ED-49DB-9BCE-EA6630CE43AB}"
           DTS:ValueIndex="1"
           DTS:VariableName="User::shiftsourcestartdate" />
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{E7C717F5-6483-41AF-8222-A8F6759F3235}"
-          DTS:ObjectName="{E7C717F5-6483-41AF-8222-A8F6759F3235}"
+          DTS:DTSID="{D04730FA-360F-4D8F-BE8D-342B6A3CB2AE}"
+          DTS:ObjectName="{D04730FA-360F-4D8F-BE8D-342B6A3CB2AE}"
           DTS:ValueIndex="2"
           DTS:VariableName="User::shiftsourcenqdate" />
       </DTS:ForEachVariableMappings>
@@ -203,7 +185,8 @@
       DTS:refId="Package\Refresh Staging to Current"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Copies current data from staging"
-      DTS:DTSID="{EB050226-C282-4FC4-AEAD-1605A09A6868}"
+      DTS:Disabled="True"
+      DTS:DTSID="{DFF8466B-A105-4BDC-88F7-6E2AD3E7351D}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="Refresh Staging to Current"
@@ -225,7 +208,7 @@
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint]"
       DTS:CreationName=""
-      DTS:DTSID="{2A4FF2FD-3E6E-48FA-8992-3E0B151F89E2}"
+      DTS:DTSID="{9D808EC0-1A1E-43F3-91FD-58F9EDA3C74F}"
       DTS:From="Package\Execute SQL Task"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint"
@@ -233,7 +216,7 @@
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
       DTS:CreationName=""
-      DTS:DTSID="{D8B8E561-70AA-4873-84CB-051674F73F18}"
+      DTS:DTSID="{F4A34D30-8153-4B25-AA0D-265F43CC8E6F}"
       DTS:From="Package\Get Tangier data"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 1"
@@ -252,38 +235,38 @@
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="220,42"
+          Size="215,42"
           Id="Package\Execute SQL Task"
-          TopLeft="157.428574143624,29.1294120049394" />
+          TopLeft="158.428571827558,43.1294120049394" />
         <NodeLayout
-          Size="166,42"
+          Size="179,42"
           Id="Package\Get Tangier data\Execute Process Task"
-          TopLeft="25.9428610451368,14.9176491866062" />
+          TopLeft="23.9428610451368,21.9176491866062" />
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="215,77"
-          Size="215,120"
+          PanelSize="220,80"
+          Size="220,123"
           Id="Package\Get Tangier data"
-          TopLeft="157.428574143624,94.3941191742577" />
+          TopLeft="158.428574143624,119.423531325053" />
         <NodeLayout
-          Size="217,42"
+          Size="204,42"
           Id="Package\Refresh Staging to Current"
-          TopLeft="157.428574143624,237.658826343576" />
+          TopLeft="171.000008583069,259.658826343576" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="266.178574143624,71.1294120049394">
+          TopLeft="267.178572985591,85.1294120049394">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,23.2647071693183"
+              EndConnector="0,34.2941193201136"
               Start="0,0"
-              End="0,15.7647071693183">
+              End="0,26.7941193201136">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,15.7647071693183" />
+                    End="0,26.7941193201136" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -294,18 +277,30 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="265.428574143624,214.394119174258">
+          TopLeft="158.428574143624,180.923531325053">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,23.2647071693183"
+              EndConnector="12.5714344394451,99.735295018523"
               Start="0,0"
-              End="0,15.7647071693183">
+              End="5.07143443944506,99.735295018523">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,15.7647071693183" />
+                    End="-18.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-18.5,0"
+                    Point2="-22.5,0"
+                    Point3="-22.5,4" />
+                  <mssgle:LineSegment
+                    End="-22.5,95.735295018523" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-22.5,95.735295018523"
+                    Point2="-22.5,99.735295018523"
+                    Point3="-18.5,99.735295018523" />
+                  <mssgle:LineSegment
+                    End="5.07143443944506,99.735295018523" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
