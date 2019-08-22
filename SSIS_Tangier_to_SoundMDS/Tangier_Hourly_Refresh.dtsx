@@ -13,8 +13,8 @@
   DTS:ObjectName="Tangier_Hourly_Refresh"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="79"
-  DTS:VersionGUID="{F1DAE76A-25DC-4129-A96E-505CC80E7E52}">
+  DTS:VersionBuild="81"
+  DTS:VersionGUID="{D90668AF-579D-47E7-BA44-10AE47328F8C}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables>
@@ -155,8 +155,7 @@
               RequireFullFileName="False"
               Arguments="get_schedule.py 2001.0 2019-03-1 2019-03-31"
               WorkingDirectory="C:\Source\Projects\TangierToSoundMDS"
-              TerminateAfterTimeout="False"
-              WindowStyle="Hidden" />
+              TerminateAfterTimeout="False" />
           </DTS:ObjectData>
         </DTS:Executable>
       </DTS:Executables>
